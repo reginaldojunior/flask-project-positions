@@ -1,15 +1,16 @@
-import os
 from flask import Flask, redirect, url_for, request, render_template
 from routes.people import people
+from routes.jobs import jobs
 
 app = Flask(__name__)
 
 app.register_blueprint(people)
+app.register_blueprint(jobs)
 
 
 @app.route('/')
 def todo():
-    return "See a doc"
+    return "See documentation"
 
 
 if __name__ == "__main__":
