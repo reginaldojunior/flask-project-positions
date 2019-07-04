@@ -12,7 +12,6 @@ class Applications():
         self.created_at = datetime.datetime.utcnow()
 
     def insert(self):
-        print(self.data)
         self.valid_fields()
 
         if len(self.error) > 0:

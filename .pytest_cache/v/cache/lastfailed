@@ -2,5 +2,6 @@
   "tests/integration/test_person.py::test_create_person_with_error_except": true,
   "tests/integration/test_person.py::test_person_create": true,
   "tests/test_flaskr.py": true,
-  "tests/test_flaskr.py::test_empty_db": true
+  "tests/test_flaskr.py::test_empty_db": true,
+  "tests/unit/test_ScoreCandidate.py": true
 }
