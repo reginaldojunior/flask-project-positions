@@ -13,6 +13,7 @@ def test_calc_score_expected_result():
 
     assert 50 == candidate.calc_score(75, 25)
 
+
 def test_cald_d_expected_result():
     candidate = ScoreCandidate()
 
