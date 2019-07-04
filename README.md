@@ -15,6 +15,7 @@ O projeto está utilizando o docker como container para desenvolvimento e ambien
 
 Os testes podem ser rodados com o seguinte comando
 
-- `sudo docker-compose exec web pytest tests/*.py`
+- `docker-compose exec web pytest tests/*.py`
 
 ## Endpoints
+
