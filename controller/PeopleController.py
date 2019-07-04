@@ -12,7 +12,7 @@ class PeopleController():
         except Exception as identifier:
             return jsonify({"error": str(identifier), "code": 500})
 
-        if type(result) is "list" and len(result) == 0:
+        if isinstance(result, list):
             return jsonify({
                 "error": result,
                 "code": 400

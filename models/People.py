@@ -14,13 +14,13 @@ class People():
     def insert(self):
         self.valid_fields()
 
-        if len(self.error) == 0:
-            self.id = Database().insert("people", self.json())
-            self.id = str(self.id)
+        if len(self.error) > 0:
+            return self.error
 
-            return self.json()
+        self.id = Database().insert("people", self.json())
+        self.id = str(self.id)
 
-        return self.error
+        return self.json()
 
     def valid_fields(self):
         if ('nome' not in self.data):

@@ -1,3 +1,6 @@
 [
-  "tests/test.py::test_algo"
+  "tests/integration/test_jobs.py::test_create_person",
+  "tests/integration/test_jobs.py::test_create_person_with_invalid_fields",
+  "tests/integration/test_person.py::test_create_person",
+  "tests/integration/test_person.py::test_create_person_with_invalid_fields"
 ]
