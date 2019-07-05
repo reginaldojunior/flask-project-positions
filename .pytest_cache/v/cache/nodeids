@@ -1,7 +1,8 @@
 [
   "tests/test_ScoreCandidate.py::test_calc_n_expected_result",
   "tests/test_ScoreCandidate.py::test_calc_score_expected_result",
-  "tests/test_ScoreCandidate.py::test_cald_d_expected_result",
+  "tests/test_ScoreCandidate.py::test_cald_d_expected_result_better_way_from_a_to_b",
+  "tests/test_ScoreCandidate.py::test_cald_d_expected_result_better_way_from_a_to_e",
   "tests/integration/test_application.py::test_create_person",
   "tests/integration/test_application.py::test_create_person_with_invalid_fields",
   "tests/integration/test_jobs.py::test_create_person",
