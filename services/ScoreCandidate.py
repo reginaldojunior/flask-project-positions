@@ -1,66 +1,20 @@
+from services.Dijsktra import Dijkstra
 
 
-class ScoreCandidate():
+class ScoreCandidate:
+    def calc_d(self, origin, destiny):
+        dijkstra = Dijkstra(
+            [
+                ("a", "b", 5), ("b", "c", 7),
+                ("b", "d", 3), ("c", "b", 7), ("c", "e", 4),  ("d", "e", 10),
+                ("d", "f", 8)
+            ]
+        )
 
-    LOCATIONS = {
-        "A": {
-            "B": 5
-        },
-        "B": {
-            "A": 5,
-            "C": 7,
-            "D": 3
-        },
-        "C": {
-            "B": 7,
-            "E": 4
-        },
-        "D": {
-            "B": 3,
-            "E": 10,
-            "F": 8
-        },
-        "E": {
-            "C": 4,
-            "D": 10
-        },
-        "F": {
-            "D": 8
-        }
-    }
+        return dijkstra.dijkstra(origin, destiny)
 
     def calc_n(self, nv, nc):
         return 100 - 25 * abs((nv - nc))
 
     def calc_score(self, n, d):
         return (n + d) / 2
-
-    def calc_d(self, origin, destiny):
-        last_local_passed = None
-        next_ways_to_destiny = None
-
-        better_way = self.find_better_way(self.LOCATIONS, origin, destiny)
-
-        return {"better_way": better_way}
-
-    def find_better_way(self, ways, origin, destiny):
-        for name in ways:
-            if (name == origin):
-                return self.find_better_way_from_origin(ways, ways[name],
-                                                        destiny)
-
-    def find_better_way_from_origin(self, ways, start, destiny):
-        distance_between_start_from_ways = 0
-        for ways_possible_from_origin in start:
-            if (ways_possible_from_origin == destiny):
-                distance_between_start_from_ways = start[
-                    ways_possible_from_origin
-                ]
-
-                break
-
-            for name in ways:
-                if (ways_possible_from_origin == name):
-                    print(ways[ways_possible_from_origin])
-
-        return distance_between_start_from_ways

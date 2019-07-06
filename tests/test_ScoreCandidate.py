@@ -15,16 +15,12 @@ def test_calc_score_expected_result():
 
 
 def test_cald_d_expected_result_better_way_from_a_to_b():
-    candidate = ScoreCandidate()
+    score = ScoreCandidate()
 
-    distance = candidate.calc_d("A", "B")
-
-    assert 5 == distance['better_way']
+    assert 5 == score.calc_d("a", "b")
 
 
 def test_cald_d_expected_result_better_way_from_a_to_e():
-    candidate = ScoreCandidate()
+    score = ScoreCandidate()
 
-    distance = candidate.calc_d("A", "E")
-
-    # assert 16 == distance['better_way']
+    assert 16 == score.calc_d("a", "e")
