@@ -1,11 +1,11 @@
 import datetime
-
+from bson.objectid import ObjectId
 from services.Database import Database
 
 
 class People():
 
-    def __init__(self, person):
+    def __init__(self, person={}):
         self.error = []
         self.id = None
         self.data = person
@@ -44,3 +44,6 @@ class People():
             'nivel': self.data['nivel'],
             'created_at': self.created_at
         }
+
+    def getById(self, _id):
+        return Database().find_one("people", {"_id": ObjectId(_id)})

@@ -17,10 +17,16 @@ def test_calc_score_expected_result():
 def test_cald_d_expected_result_better_way_from_a_to_b():
     score = ScoreCandidate()
 
-    assert 5 == score.calc_d("a", "b")
+    assert 100 == score.calc_d("a", "b")
 
 
 def test_cald_d_expected_result_better_way_from_a_to_e():
     score = ScoreCandidate()
 
-    assert 16 == score.calc_d("a", "e")
+    assert 25 == score.calc_d("a", "e")
+
+
+def test_cald_d_expected_result_better_way_from_a_to_e():
+    score = ScoreCandidate()
+
+    assert 25 == score.calc_d("a", "f")

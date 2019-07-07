@@ -15,3 +15,7 @@ class Database():
 
     def find_one(self, collection, query):
         return self.DATABASE[collection].find_one(query)
+
+    def find(self, collection, query, sort={"field": "_id", "order": -1}):
+        return self.DATABASE[collection].find(query).sort(sort['field'],
+                                                          sort['order'])

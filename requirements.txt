@@ -2,4 +2,3 @@ flask
 pymongo
 pytest
 requests
-pqdict

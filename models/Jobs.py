@@ -1,11 +1,11 @@
 import datetime
-
+from bson.objectid import ObjectId
 from services.Database import Database
 
 
 class Jobs():
 
-    def __init__(self, job):
+    def __init__(self, job={}):
         self.error = []
         self.id = None
         self.data = job
@@ -48,3 +48,8 @@ class Jobs():
             'nivel': self.data['nivel'],
             'created_at': self.created_at
         }
+
+    def getById(self, _id):
+        job = Database().find_one("jobs", {"_id": ObjectId(_id)})
+
+        return job

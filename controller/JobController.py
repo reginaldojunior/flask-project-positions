@@ -1,4 +1,6 @@
+from bson.json_util import dumps
 from models.Jobs import Jobs
+from models.RankingJobs import RankingJobs
 from flask import Blueprint, request, jsonify
 
 
@@ -22,3 +24,11 @@ class JobController():
             "message": "Vaga adicionada com sucesso",
             "response": result
         }), 201
+
+    def getRanking(self, job_id):
+        ranking = RankingJobs()
+        ranks = ranking.getByJobId(job_id)
+
+        return jsonify(
+            ranks
+        ), 200
