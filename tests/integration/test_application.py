@@ -1,5 +1,8 @@
 import pytest
 import requests
+import os
+
+URL = os.getenv('URL', 'http://127.0.0.1:5000')
 
 
 def test_create_apply():
@@ -12,7 +15,7 @@ def test_create_apply():
 def test_get_applys_ranking():
     result = create_apply_mock()
 
-    response = requests.get('http://127.0.0.1:5000/v1/vagas/' +
+    response = requests.get(URL + '/v1/vagas/' +
                             str(result['job_id']) + '/candidaturas/ranking')
 
     assert 200 == response.status_code
@@ -23,7 +26,7 @@ def create_apply_mock():
     person_id = create_person_mock()
     job_id = create_job_mock()
 
-    response = requests.post('http://127.0.0.1:5000/v1/candidaturas', json={
+    response = requests.post(URL + '/v1/candidaturas', json={
         "id_vaga": job_id,
         "id_pessoa": person_id
     })
@@ -36,7 +39,7 @@ def create_apply_mock():
 
 
 def create_job_mock():
-    response = requests.post('http://127.0.0.1:5000/v1/vagas', json={
+    response = requests.post(URL + '/v1/vagas', json={
         "empresa": "oi",
         "titulo": "Desnvovledor",
         "descricao": "ksafldjkfl",
@@ -50,7 +53,7 @@ def create_job_mock():
 
 
 def create_person_mock():
-    person = requests.post('http://127.0.0.1:5000/v1/pessoas', json={
+    person = requests.post(URL + '/v1/pessoas', json={
         "nome": "João",
         "profissao": "Arquiteto de TI",
         "localizacao": "A",

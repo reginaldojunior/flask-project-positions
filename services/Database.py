@@ -1,9 +1,10 @@
 import pymongo
+import os
 
 
 class Database():
 
-    URI = "mongodb://mongodb:27017/"
+    URI = os.getenv("MONGODB_STRING", "mongodb://mongodb:27017/")
 
     def __init__(self):
         client = pymongo.MongoClient(self.URI)

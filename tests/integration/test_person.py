@@ -1,9 +1,12 @@
 import pytest
 import requests
+import os
+
+URL = os.getenv('URL', 'http://127.0.0.1:5000')
 
 
 def test_create_person():
-    response = requests.post('http://127.0.0.1:5000/v1/pessoas', json={
+    response = requests.post(URL + '/v1/pessoas', json={
         "nome": "João",
         "profissao": "Arquiteto de TI",
         "localizacao": "A",
@@ -18,7 +21,7 @@ def test_create_person():
 
 
 def test_create_person_with_invalid_fields():
-    response = requests.post('http://127.0.0.1:5000/v1/pessoas', json={
+    response = requests.post(URL + '/v1/pessoas', json={
         "profissao": "Arquiteto de TI",
         "localizacao": "A",
         "nivel": 2

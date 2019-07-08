@@ -10,6 +10,7 @@ def jobs_create():
 
     return JobController().post(data)
 
+
 @jobs.route("/v1/vagas/<job_id>/candidaturas/ranking", methods=["GET"])
 def jobs_ranking_get(job_id):
     return JobController().getRanking(job_id)

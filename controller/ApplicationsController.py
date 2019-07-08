@@ -10,7 +10,7 @@ class ApplicationsController():
         try:
             result = application.insert()
         except Exception as identifier:
-            return jsonify({"error": str(identifier), "code": 500})
+            return jsonify({"error": str(identifier), "code": 500}), 500
 
         if isinstance(result, list):
             return jsonify({
