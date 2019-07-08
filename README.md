@@ -28,6 +28,114 @@ Os testes podem ser rodados com o seguinte comando
 
 ## Endpoints
 
+### [POST] /v1/pessoas
+
+#### Request
+
+Niveis podem ser de 1 à 5 e localizações de A à F
+
+```
+{
+	"nome": "oi",
+	"profissao": "Desnvovledor",
+	"localizacao": "D",
+	"nivel": "1"
+}
+```
+
+#### Response
+
+201 
+
+```
+{
+  "message": "Pessoa adicionada com sucesso",
+  "response": {
+    "created_at": "Mon, 08 Jul 2019 14:10:09 GMT",
+    "id": "5d234ec11a14a9c860c03846",
+    "location": "D",
+    "name": "oi",
+    "nivel": "1",
+    "ocupation": "Desnvovledor"
+  }
+}
+```
+
+400
+
+```
+{
+  "code": 400,
+  "error": [
+    "Field 'field' is required to save person"
+  ]
+}
+```
+
+500
+
+```
+ {
+  "code": 500,
+  "error": "description of error"
+ }
+```
+
+### [POST] /v1/vagas
+
+#### Request
+
+Niveis podem ser de 1 à 5 e localizações de A à F
+
+```
+{
+	"empresa": "oi",
+	"titulo": "Desnvovledor",
+	"descricao": "ksafldjkfl",
+	"localizacao": "D",
+	"nivel": "1"
+}
+```
+
+#### Response
+
+201 
+
+```
+{
+  "message": "Vaga adicionada com sucesso",
+  "response": {
+    "created_at": "Mon, 08 Jul 2019 14:00:10 GMT",
+    "description": "ksafldjkfl",
+    "id": "5d234c6a1a14a9c860c03843",
+    "location": "D",
+    "nivel": "1",
+    "organization": "oi",
+    "title": "Desnvovledor"
+  }
+}
+```
+
+400
+
+```
+{
+  "code": 400,
+  "error": [
+    "Field 'localizacao' is required to save person"
+  ]
+}
+```
+
+500
+
+```
+ {
+  "code": 500,
+  "error": "description of error"
+ }
+```
+
 ### [POST] /v1/candidaturas
 
 #### Request
@@ -38,7 +146,7 @@ Os testes podem ser rodados com o seguinte comando
 
 #### Response
 
- - 201 - Criado
+ 201
 
  ```
  {
@@ -52,7 +160,8 @@ Os testes podem ser rodados com o seguinte comando
  }
  ```
 
- - 500 - Erro desconhecido
+ 500
+
  ```
  {
   "code": 500,
@@ -60,7 +169,8 @@ Os testes podem ser rodados com o seguinte comando
  }
  ```
 
- - 400 - Mal formação no request
+ 400
+
  ```
  {
   "code": 400,
@@ -69,3 +179,38 @@ Os testes podem ser rodados com o seguinte comando
   ]
  }
  ```
+
+### [GET] /v1/vagas/<job_id>/candidaturas/ranking
+
+#### Response
+
+200
+
+```
+[
+  {
+    "localizacao": "A",
+    "nivel": 2,
+    "nome": "João",
+    "profissao": "Arquiteto de TI",
+    "score": 75.0
+  },
+  {
+    "localizacao": "A",
+    "nivel": 2.0,
+    "nome": "João",
+    "profissao": "Arquiteto de TI",
+    "score": 25.0
+  }
+]
+```
+
+500
+
+```
+ {
+  "code": 500,
+  "error": "description of error"
+ }
+```
+
